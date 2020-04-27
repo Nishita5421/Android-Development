@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    >
+
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="404dp"
+
+        android:background="@drawable/roundededit"
+        android:backgroundTint="#004385"
+        android:drawableStart="@drawable/ic_lock_black_24dp"
+        android:ems="10"
+        android:hint="@string/pass"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:padding="5dip"
+        android:textColorHint="#FCF8F8"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        tools:targetApi="lollipop" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_above="@id/editText1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="462dp"
+
+        android:background="@drawable/roundededit"
+        android:backgroundTint="#004385"
+        android:drawableStart="@drawable/ic_person_black_24dp"
+
+        android:ems="10"
+        android:hint="@string/emaill"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:padding="5dp"
+        android:textColorHint="#FAF7F7"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="214dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="340dp"
+        android:background="@drawable/roundededit"
+        android:backgroundTint="#F33757"
+        android:text="@string/Login"
+        android:textColor="#F8FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="300dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:maxLines="1"
+        android:text="@string/Text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="251dp"
+        android:text="@string/Text3"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="256dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="169dp"
+        android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+        android:drawableStart="@drawable/googleg_standard_color_18"
+        android:text="@string/google"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="105dp"
+        android:backgroundTint="#0330B1"
+        android:drawableStart="@drawable/com_facebook_button_icon"
+        android:text="@string/fb"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>
+
+
+

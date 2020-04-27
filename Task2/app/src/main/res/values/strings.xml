@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task 2</string>
+    <string name="button">SELECT DATE</string>
+    <string name="button4">ALERT</string>
+    <string name="button2">SNACK BAR</string>
+    <string name="button3">TOAST</string>
+    <string name="button5">PROGRESS BAR</string>
+</resources>

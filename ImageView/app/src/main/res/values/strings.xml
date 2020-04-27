@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ImageView</string>
+    <string name="todo">dis</string>
+    <string name="button">LEFT</string>
+    <string name="button1">RIGHT</string>
+    <string name="textview">Image1</string>
+</resources>
