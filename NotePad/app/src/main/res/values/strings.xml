@@ -9,4 +9,5 @@
     <string name="todo">TODO</string>
     <string name="SAVE">Button</string>
     <string name="button">SAVE</string>
+    <string name="button1">DELETE</string>
 </resources>

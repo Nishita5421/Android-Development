@@ -1,29 +1,40 @@
 package com.nishita.notepad;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG="MainActivity";
     private RecyclerView recyclerView;
     private ExampleAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    public static int count=5;
+    public static int count=0;
+    private String naam;
+    private ImageView pic;
+
+    //private Button delete;
     ArrayList<ExampleItem> examplelist = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
 
@@ -31,33 +42,46 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerview);
         layoutManager=new LinearLayoutManager(this);
         adapter=new ExampleAdapter(examplelist);
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        adapter.setListener(new ExampleAdapter.onClickListener() {
+            @Override
+            public void onItemClick(int position) {
 
+            }
 
-
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
+        });
         fab.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
             public void onClick(View view) {
+                   loadData();
+                   addnote();
+                   count=count+1;
 
-                    addnote();
-                     count=count+1;
-
-
-                Snackbar.make(view, "Note Added", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Note" + " " + count + " " +"Added", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
+     //   update();
+
+    }
+    public void loadData()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences(global.ShARED,MODE_PRIVATE);
+        naam=sharedPreferences.getString(global.Title,"Write Title");
     }
     public void addnote()
     {
-        adapter = new ExampleAdapter(examplelist);
+
         recyclerView.setAdapter(adapter);
-        examplelist.add(new ExampleItem("Welcome to the Notepad", R.drawable.ic_border_color_black_24dp));
+        examplelist.add(new ExampleItem(naam, R.drawable.ic_border_color_black_24dp));
     }
 
     @Override
@@ -65,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+    public void removeItem(int position)
+    {
+        examplelist.remove(position);
+        adapter.notifyItemRemoved(position);
     }
 
     @Override
@@ -77,19 +106,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);
     }
-@Override
-    protected void onResume()
-{
-    super.onResume();
-
-    for(int i=0;i<count;i++)
-   addnote();
-
-
-}
 
     }

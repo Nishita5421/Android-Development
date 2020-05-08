@@ -3,10 +3,12 @@ package com.nishita.notepad;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +21,9 @@ public class edit_note extends AppCompatActivity {
 
     private EditText title;
     private EditText body;
+
+    private int i;
+    private String s,s1;
 private Context context;
 CharSequence text="Note Saved";
 private int duration=Toast.LENGTH_SHORT;
@@ -30,30 +35,22 @@ private int duration=Toast.LENGTH_SHORT;
 
         setContentView(R.layout.edit_note);
 
-
         title=findViewById(R.id.input_title);
-        body=findViewById(R.id.input_note);}
-
-        @Override
-                protected void onResume()
-        {
-            super.onResume();
-            @SuppressLint("WrongConstant") SharedPreferences sh =getSharedPreferences("share",MODE_APPEND);
-                String s=sh.getString("title","");
-                String s1=sh.getString("body","");
-                title.setText(s);
-                body.setText(s1);
-
-
+        body=findViewById(R.id.input_note);
     }
 
     @Override
-    protected void onPause()
-    {
-        super.onPause();
+                public void onResume()
+        {
+            super.onResume();
+                 SharedPreferences sh =getSharedPreferences("share",MODE_PRIVATE);
+                s=sh.getString("title","");
+                s1=sh.getString("body","");
+            title.setText(s);
+            body.setText(s1);
 
+    }
 
-}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -69,14 +66,17 @@ private int duration=Toast.LENGTH_SHORT;
         int id = item.getItemId();
             if(id==R.id.save)
             {
-                onPause();
-                SharedPreferences sharedPreferences=getSharedPreferences("share",MODE_PRIVATE);
-                SharedPreferences .Editor myEdit = sharedPreferences.edit();
-                myEdit.putString("title",title.getText().toString());
-                myEdit.putString("body",body.getText().toString());
-                myEdit.commit();
 
+                global.Title=title.getText().toString();
+                global.Body=body.getText().toString();
+                SharedPreferences sharedPreferences=getSharedPreferences("share",MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putString("title", global.Title);
+                myEdit.putString("body",global.Body);
+
+                myEdit.apply();
                 Toast.makeText(this,"Note is Saved",Toast.LENGTH_SHORT).show();
+                finish();
 
 
             }

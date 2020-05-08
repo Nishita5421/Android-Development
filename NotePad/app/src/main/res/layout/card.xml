@@ -8,11 +8,13 @@
     android:layout_marginStart="20dp"
     android:layout_marginTop="20dp"
     android:layout_marginEnd="20dp"
-    app:cardCornerRadius="10dp">
+    android:background="#11000000"
+    app:cardCornerRadius="15dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="55dp"
+        android:background="#AB000000">
 
 
         <ImageView
@@ -30,14 +32,28 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="47dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="25dp"
             android:layout_toEndOf="@+id/imageview"
             android:fontFamily="@font/kite_one"
-
-            android:textColor="@android:color/black"
+            android:text="@string/TextView4"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="3dp"
+            android:background="#000000"
+            android:text="DELETE"
+            android:textColor="#FFFFFF" />/
+
 
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
