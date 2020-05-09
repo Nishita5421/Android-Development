@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NotePad</string>
+    <string name="action_settings">Settings</string>
+    <string name="TextView">No notes exist!</string>
+    <string name="TextView1">Write Title</string>
+    <string name="TextView2">Write Text</string>
+    <string name="save">SAVE</string>
+    <string name="TextView4">Welcome to notes !</string>
+    <string name="todo">TODO</string>
+    <string name="SAVE">Button</string>
+    <string name="button">SAVE</string>
+    <string name="button1">DELETE</string>
+</resources>
