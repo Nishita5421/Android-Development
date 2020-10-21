@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333E50"
+    tools:context=".student_register">
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="193dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/round_corners"
+        android:fontFamily="sans-serif"
+        android:text="@string/register_s"
+        android:textColor="#090909"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="45dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="335dp"
+        android:layout_marginBottom="719dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="254dp"
+        android:layout_height="79dp"
+        android:fontFamily="sans-serif-condensed"
+        android:letterSpacing="0"
+
+        android:text="@string/register_s"
+        android:textColor="#E9DFD3"
+        android:textSize="58sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="372dp"
+        android:layout_height="59dp"
+        android:background="#E9DFD3"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/emaill"
+        android:inputType="textWebEmailAddress|textPersonName"
+
+
+        android:textColor="#000000"
+        android:textColorHint="#4E4D4D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="372dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="1dp"
+        android:background="#E9DFD3"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+
+        android:textColor="#000000"
+        android:textColorHint="#4E4D4D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.662"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="372dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="2dp"
+        android:background="#E9DFD3"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/pass"
+        android:inputType="textPersonName"
+
+        android:textColor="#000000"
+        android:textColorHint="#4E4D4D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="372dp"
+        android:layout_height="59dp"
+        android:autofillHints=""
+        android:background="#E9DFD3"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+
+        android:textColor="#000000"
+        android:textColorHint="#4E4D4D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <EditText
+        android:id="@+id/name2"
+        android:layout_width="372dp"
+        android:layout_height="59dp"
+        android:background="#E9DFD3"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/registration_number"
+        android:inputType="textPersonName"
+        
+        android:textColor="#000000"
+        android:textColorHint="#4E4D4D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557"
+        android:autofillHints="" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

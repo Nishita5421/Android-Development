@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1006456428951",
+    "firebase_url": "https://nishita-ec587.firebaseio.com",
+    "project_id": "nishita-ec587",
+    "storage_bucket": "nishita-ec587.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006456428951:android:4a7e323697e0458c404cd2",
+        "android_client_info": {
+          "package_name": "com.nishita.quiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006456428951-6j8a1o4o6kof8l2n925oncal28o3ola2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nishita.quiz",
+            "certificate_hash": "4b2fc42d3c95766da07a003c59d3ffc2f1ee3790"
+          }
+        },
+        {
+          "client_id": "1006456428951-c5g1secmqpq2rvd7kfvplb22gba1ds2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHZDrVCysM_R6aGdCs7hMkUEVATbL0T68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006456428951-c5g1secmqpq2rvd7kfvplb22gba1ds2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
