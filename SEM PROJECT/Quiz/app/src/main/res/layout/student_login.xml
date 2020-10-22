@@ -47,20 +47,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="168dp"
-        android:layout_height="68dp"
+        android:layout_width="150dp"
+        android:layout_height="77dp"
         android:fontFamily="sans-serif-condensed"
         android:letterSpacing="0.05"
-        android:text="@string/Login"
+        android:text="@string/login"
         android:textColor="#E9DFD3"
-        android:textSize="58sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.131" />
 
     <EditText
         android:id="@+id/password"

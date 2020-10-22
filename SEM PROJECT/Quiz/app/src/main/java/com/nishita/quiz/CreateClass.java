@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 public class CreateClass extends AppCompatActivity {
 
-    String st1;
+    String st1,st2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,14 @@ public class CreateClass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CreateClass.this, teacher_register.class));
+            }
+        });
+
+        Button ViewCourse2 = findViewById(R.id.ViewCourse2);
+        ViewCourse2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CreateClass.this, ClassCreated.class));
             }
         });
     }
@@ -47,10 +55,17 @@ public class CreateClass extends AppCompatActivity {
             public void onClick(View view) {
 
                 EditText EnterCourseCode = mView.findViewById(R.id.EnterClassName);
-                Intent i = new Intent(CreateClass.this, ClassCreated.class);
+                Intent i1 = new Intent(CreateClass.this, ClassCreated.class);
                 st1 = EnterCourseCode.getText().toString();
-                i.putExtra("Code",st1);
-                startActivity(i);
+                i1.putExtra("Code1",st1);
+                startActivity(i1);
+                finish();
+
+                EditText EnterAccessCode = mView.findViewById(R.id.EnterAccessCode);
+                Intent i2 = new Intent(CreateClass.this, ClassCreated.class);
+                st2 = EnterAccessCode.getText().toString();
+                i2.putExtra("Code2",st2);
+                startActivity(i2);
                 finish();
             }
         });

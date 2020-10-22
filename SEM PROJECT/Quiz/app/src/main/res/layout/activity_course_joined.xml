@@ -24,14 +24,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="239dp"
+        android:layout_width="250dp"
         android:layout_height="78dp"
         android:layout_marginStart="13dp"
         android:fontFamily="sans-serif-condensed"
         android:letterSpacing="0"
         android:text="@string/courses"
         android:textColor="#E9DFD3"
-        android:textSize="58sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,16 +41,17 @@
         app:layout_constraintVertical_bias="0.192" />
 
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/recyclerview"
-        android:layout_width="454dp"
-        android:layout_height="435dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.983" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <Button
         android:id="@+id/fab"

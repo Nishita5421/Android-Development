@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
@@ -33,7 +34,7 @@ public class CourseJoined extends AppCompatActivity {
     int position;
     public ArrayList<CardView> mCardView;
     public RecyclerView mRecyclerView;
-    public RecyclerView.Adapter mAdapter;
+    public Adapter1 mAdapter;
     public RecyclerView.LayoutManager mLayoutManager;
     AlertDialog.Builder alert;
     AlertDialog alertDialog;
@@ -123,5 +124,12 @@ public class CourseJoined extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         VerticalSpacing itemDecorator = new VerticalSpacing(10);
         mRecyclerView.addItemDecoration(itemDecorator);
-    }
-}
+        mAdapter.setOnItemClickListener(new Adapter1.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                Intent intent = new Intent(CourseJoined.this, QuizRecycler.class);
+                intent.putExtra("Course Name", (Parcelable) mCardView.get(position));
+                startActivity(intent);
+            }
+        });
+}}

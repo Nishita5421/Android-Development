@@ -47,21 +47,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="254dp"
-        android:layout_height="79dp"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
         android:fontFamily="sans-serif-condensed"
-        android:letterSpacing="0"
 
         android:text="@string/register_s"
         android:textColor="#E9DFD3"
-        android:textSize="58sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <EditText
         android:id="@+id/email"

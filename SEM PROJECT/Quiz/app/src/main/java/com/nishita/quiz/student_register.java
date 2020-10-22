@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,7 +48,14 @@ public class student_register extends AppCompatActivity {
         Button button = findViewById(register);
         fstore=FirebaseFirestore.getInstance();
 
-
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.bringToFront();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(student_register.this, page1_gettingstarted.class));
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

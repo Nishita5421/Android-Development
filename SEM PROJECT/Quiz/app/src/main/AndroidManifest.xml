@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateClass"></activity>
+        <activity android:name=".QuizDetails"></activity>
+        <activity android:name=".QuizRecycler" />
+        <activity android:name=".CreateClass" />
         <activity android:name=".ClassCreated" />
         <activity android:name=".ClassCode" />
         <activity android:name=".ClassCard" />

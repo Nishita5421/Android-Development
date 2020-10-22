@@ -12,15 +12,15 @@ public class ClassCard {
         mCode = Code;
     }
 
-    public int getImageResource(){
+    public int getImageResource1(){
         return mImageResource1;
     }
 
-    public String getCourse() {
+    public String getCourse1() {
         return mClass;
     }
 
-    public String getSchool(){
+    public String getCode(){
         return mCode;
     }
 }
