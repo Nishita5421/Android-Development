@@ -53,7 +53,7 @@ public class student_register extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(student_register.this, page1_gettingstarted.class));
+                startActivity(new Intent(student_register.this, page2_choose.class));
             }
         });
 
@@ -81,11 +81,11 @@ public class student_register extends AppCompatActivity {
                         else {
 
                             userID= Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-                            DocumentReference documentReference=fstore.collection("teachers").document(userID);
+                            DocumentReference documentReference=fstore.collection("student").document(userID);
                             Map<String,Object> user=new HashMap<>();
                             user.put("Name",naam);
                             user.put("Email",email);
-                            user.put("Mob No.",num);
+                            user.put("Reg No.",num);
 
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

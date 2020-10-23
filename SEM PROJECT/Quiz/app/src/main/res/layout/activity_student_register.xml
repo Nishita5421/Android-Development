@@ -90,12 +90,13 @@
         android:layout_width="372dp"
         android:layout_height="59dp"
         android:layout_marginStart="1dp"
+        android:autofillHints=""
         android:background="#E9DFD3"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/username"
-        android:inputType="textPersonName"
 
+        android:inputType="text"
         android:textColor="#000000"
         android:textColorHint="#4E4D4D"
         android:textSize="24sp"
@@ -105,20 +106,20 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.662" />
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="372dp"
         android:layout_height="59dp"
         android:layout_marginStart="2dp"
+        android:autofillHints=""
         android:background="#E9DFD3"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/pass"
-        android:inputType="textPersonName"
 
+        android:inputType="textPassword"
         android:textColor="#000000"
         android:textColorHint="#4E4D4D"
         android:textSize="24sp"
@@ -128,8 +129,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <EditText
         android:id="@+id/name"
@@ -157,12 +157,13 @@
         android:id="@+id/name2"
         android:layout_width="372dp"
         android:layout_height="59dp"
+        android:autofillHints=""
         android:background="#E9DFD3"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/registration_number"
-        android:inputType="textPersonName"
-        
+
+        android:inputType="textCapSentences"
         android:textColor="#000000"
         android:textColorHint="#4E4D4D"
         android:textSize="24sp"
@@ -172,8 +173,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.557" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

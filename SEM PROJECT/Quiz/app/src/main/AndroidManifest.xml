@@ -6,17 +6,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon1"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QuizDetails"></activity>
+        <activity android:name=".SubmitBox"></activity>
+        <activity android:name=".QuizDetails" />
         <activity android:name=".QuizRecycler" />
         <activity android:name=".CreateClass" />
         <activity android:name=".ClassCreated" />
         <activity android:name=".ClassCode" />
-        <activity android:name=".ClassCard" />
+
         <activity android:name=".CourseJoined" />
         <activity android:name=".coursecode" />
         <activity android:name=".student_register" />

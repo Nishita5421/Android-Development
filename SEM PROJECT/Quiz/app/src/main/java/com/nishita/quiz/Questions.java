@@ -1,6 +1,7 @@
 package com.nishita.quiz;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -36,7 +37,7 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
     private List<Questionmodal> list;
     static int quesnum;
     private CountDownTimer count;
-    private int score;
+    private int score,notattempted,correct,notcorrect;
     private FirebaseFirestore firestorer;
     private int catno;
 
@@ -49,14 +50,14 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_questions);
 
          catno=getIntent().getIntExtra("Questions",1);
-        question=findViewById(R.id.ques);
-        back=findViewById(R.id.button9);
-        next=findViewById(R.id.button10);
+        question=findViewById(R.id.QuestionBar);
+       // back=findViewById(R.id.back);
+        next=findViewById(R.id.next);
         num=findViewById(R.id.num);
-        optionA=findViewById(R.id.button5);
-        optionB=findViewById(R.id.button6);
-        optionC=findViewById(R.id.button7);
-        optionD=findViewById(R.id.button8);
+        optionA=findViewById(R.id.button1);
+        optionB=findViewById(R.id.button2);
+        optionC=findViewById(R.id.button3);
+        optionD=findViewById(R.id.button4);
         timer=findViewById(R.id.timer);
         optionA.setOnClickListener(this);
         optionB.setOnClickListener(this);
@@ -64,26 +65,25 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
         optionD.setOnClickListener(this);
 
 
-
         score=0;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count.cancel();
+               // count.cancel();
                 changeQuestion();
 
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        /*back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 quesnum--;
                 quesnum--;
-                count.cancel();
+                //count.cancel();
                 changeQuestion();
 
             }
-        });
+        });*/
     getQuestionlist();
     }
 
@@ -137,23 +137,32 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
         optionC.setText(list.get(0).getOptionC());
         optionD.setText(list.get(0).getOptionD());
 
-        num.setText(String.valueOf(1)+"/"+ String.valueOf(list.size()));
+        //num.setText(String.valueOf(1)+"/"+ String.valueOf(list.size()));
+        num.setText(String.valueOf(1));
         startTimer();
         quesnum=0;
 
 
     }
+    int minutesToGo = 9;
+    int secondsToGo = 60;
+
+    int millisToGo = secondsToGo*1000+minutesToGo*1000*60;
     private void startTimer()
     {
-         count=new CountDownTimer(10000,1000) {
+         count=new CountDownTimer(millisToGo,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                timer.setText(String.valueOf(millisUntilFinished/1000));
+                int seconds = (int) (millisUntilFinished / 1000) % 60 ;
+                int minutes = (int) ((millisUntilFinished / (1000*60)) % 60);
+                String text = String.format(" %02d:%02d ",minutes,seconds);
+                timer.setText(text);
             }
 
             @Override
             public void onFinish() {
                 changeQuestion();
+
             }
         };
         count.start();
@@ -165,32 +174,40 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
         int selectedOption=0;
         switch (v.getId())
         {
-            case R.id.button5:
+            case R.id.button1:
+                optionA.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FEBB95")));
                 selectedOption=1;
                 break;
-            case R.id.button6:
+            case R.id.button2:
                 selectedOption=2;
+                optionB.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FEBB95")));
                 break;
-            case R.id.button7:
+            case R.id.button3:
                 selectedOption=3;
+                optionC.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FEBB95")));
                 break;
-            case R.id.button8:
+            case R.id.button4:
                 selectedOption=4;
+                optionD.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FEBB95")));
                 break;
              default:
+                 notattempted++;
         }
-        count.cancel();
+
+        //count.cancel();
         checkAnswer(selectedOption,v);
     }
     private void checkAnswer(int selectedOption, final View view)
     {
         if(selectedOption==list.get(quesnum).getCorrectans())
         {
-            ((Button)view).setBackgroundTintList(ColorStateList.valueOf(android.graphics.Color.GREEN));
+           // ((Button)view).setBackgroundTintList(ColorStateList.valueOf(android.graphics.Color.GREEN));
             score++;
+            correct++;
         }
         else {
-            ((Button)view).setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+            notcorrect++;
+          /*  ((Button)view).setBackgroundTintList(ColorStateList.valueOf(Color.RED));
             switch (list.get(quesnum).getCorrectans())
             {
                 case 1:
@@ -205,7 +222,7 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
                 case 4:
                     optionD.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
                     break;
-            }
+            }*/
 
         }
         Handler handler=new Handler();
@@ -213,10 +230,10 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
             @Override
             public void run() {
 
-                optionA.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
-                optionB.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
-                optionC.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
-                optionD.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
+                optionA.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFDFD5CA")));
+                optionB.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFDFD5CA")));
+                optionC.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFDFD5CA")));
+                optionD.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFDFD5CA")));
                 changeQuestion();
 
             }
@@ -235,19 +252,50 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
             optionC.setText(list.get(quesnum).getOptionC());
             optionD.setText(list.get(quesnum).getOptionD());
 
-            num.setText(String.valueOf(quesnum+1)+"/"+String.valueOf(list.size()));
-            timer.setText(String.valueOf(10));
-            startTimer();
+           // num.setText(String.valueOf(quesnum+1)+"/"+String.valueOf(list.size()));
+            num.setText(String.valueOf(quesnum+1));
+            //timer.setText(String.valueOf(10));
+            //startTimer();
 
 
         }
         else{
-            Toast.makeText(Questions.this,"Quiz is finished",Toast.LENGTH_SHORT).show();
-            Intent intent=new Intent(Questions.this,Score.class);
-            intent.putExtra("SCORE",String.valueOf(score)+"/"+String.valueOf(list.size()));
-            startActivity(intent);
-            Questions.this.finish();
+            final View mView = getLayoutInflater().inflate(R.layout.activity_submit_box, null);
+            final AlertDialog.Builder alert = new AlertDialog.Builder(Questions.this);
+            alert.setView(mView); //To set the entered text
+            final AlertDialog alertDialog = alert.create();
+            Button submit1 = (Button)mView.findViewById(R.id.submit1);
+            Button review = (Button)mView.findViewById(R.id.review);
+
+            submit1.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    notattempted=correct+notcorrect;
+                    Toast.makeText(Questions.this,"Quiz is finished",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(Questions.this,Score.class);
+                    intent.putExtra("SCORE",String.valueOf(score)+"/"+String.valueOf(list.size()));
+                    intent.putExtra("attem",String.valueOf(notattempted));
+                    intent.putExtra("notattem",String.valueOf(list.size()-notattempted));
+                    intent.putExtra("correct",String.valueOf(correct));
+                    intent.putExtra("wrong",String.valueOf(notcorrect));
+                    startActivity(intent);
+                    Questions.this.finish();
+
+                }
+            });
+            review.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+
+
+            alertDialog.show();
+        }
+
         }
     }
 
-}
+

@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Quiz</string>
+    <string name="app_name">Quizoid</string>
     <string name="emaill">Email</string>
     <string name="Login">Login</string>
     <string name="Text">Create new account</string>
@@ -30,7 +30,7 @@
     <string name="name">Name</string>
     <string name="code">Code</string>
     <string name="get_started">GET STARTED</string>
-    <string name="todo">TODO</string>
+
     <string name="title">TODO</string>
 
 
@@ -56,5 +56,40 @@
     <string name="username">username</string>
     <string name="registration_number">Registration Number</string>
     <string name="register">REGISTER</string>
+
+    <string name="total_questions">TOTAL QUESTIONS</string>
+    <string name="quiz_details">QUIZ DETAILS</string>
+    <string name="time_limit">TIME LIMIT</string>
+    <string name="total_marks">TOTAL MARKS</string>
+    <string name="_5">10</string>
+    <string name="_5_mins">10mins</string>
+    <string name="todo">todo</string>
+    <string name="start_attempt">START ATTEMPT</string>
+    <string name="test_name">TEST NAME</string>
+    <string name="question">QUES NO:</string>
+    <string name="_1_5">num</string>
+    <string name="time_left">TIME LEFT:</string>
+    <string name="_05_00">00</string>
+    <string name="what_does_srs_stand_for">QUESTION</string>
+    <string name="software_requirements_specification">OPTION A</string>
+    <string name="software_research_specification">OPTION C</string>
+    <string name="system_requirements_specification">OPTION B</string>
+    <string name="system_research_specification">OPTION 4</string>
+    <string name="next">SKIP</string>
+    <string name="back">BACK</string>
+    <string name="review_attempt">SUBMIT</string>
+    <string name="review_your_answers_before_final_submission">ARE YOU SURE YOU WANT TO SUBMIT</string>
+    <string name="submit">SUBMIT</string>
+    <string name="_3_5">marks</string>
+    <string name="incorrect">IINCORRECT</string>
+    <string name="correct">CORRECT</string>
+    <string name="not_attempted">NOT ATTEMPTED</string>
+    <string name="attempted">ATTEMPTED</string>
+    <string name="_4">attem</string>
+    <string name="_1">not_attemp</string>
+    <string name="_3">correc</string>
+    <string name="_2">incorr</string>
+    <string name="results">RESULTS</string>
+    <string name="course">COURSE</string>
 
 </resources>
