@@ -16,16 +16,19 @@ import androidx.annotation.NonNull;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
-        import android.widget.ListView;
+import android.widget.Button;
+import android.widget.ListView;
 
-        import java.util.ArrayList;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
         import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
 
     static ArrayList<String> notes = new ArrayList<String>();
     static ArrayAdapter<String> arrayAdapter;
-
+    private FloatingActionButton fab;
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -40,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onOptionsItemSelected(item);
 
-        if(item.getItemId() == R.id.add_note)
-        {
-            Intent intent = new Intent(getApplicationContext(), Editor.class);
-            startActivity(intent);
-            return true;
-        }
-
         return false;
     }
 
@@ -58,7 +54,16 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listView);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("NOTE_SAVE", Context.MODE_PRIVATE);
         HashSet<String> set = (HashSet<String>)sharedPreferences.getStringSet("notes", null);
-
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notes);
+        listView.setAdapter(arrayAdapter);
+        fab=findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Editor.class);
+                startActivity(intent);
+            }
+        });
         if(set == null)
         {
             notes.add("Example Note");
@@ -69,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
             notes = new ArrayList<>(set);         // to bring all the already stored data in the set to the notes ArrayList
         }
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notes);
-        listView.setAdapter(arrayAdapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
