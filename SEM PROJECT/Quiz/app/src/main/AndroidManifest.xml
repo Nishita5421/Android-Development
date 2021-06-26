@@ -11,13 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SubmitBox"></activity>
+        <activity android:name=".teacher_sets"></activity>
+        <activity android:name=".Viewquiz" />
+        <activity android:name=".CreateQuiz" />
+        <activity android:name=".ViewClassOptions" />
+        <activity android:name=".SubmitBox" />
         <activity android:name=".QuizDetails" />
         <activity android:name=".QuizRecycler" />
         <activity android:name=".CreateClass" />
         <activity android:name=".ClassCreated" />
         <activity android:name=".ClassCode" />
-
         <activity android:name=".CourseJoined" />
         <activity android:name=".coursecode" />
         <activity android:name=".student_register" />

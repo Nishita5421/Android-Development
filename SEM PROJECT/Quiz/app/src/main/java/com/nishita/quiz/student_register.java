@@ -81,7 +81,7 @@ public class student_register extends AppCompatActivity {
                         else {
 
                             userID= Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-                            DocumentReference documentReference=fstore.collection("student").document(userID);
+                            DocumentReference documentReference=fstore.collection("student").document(email);
                             Map<String,Object> user=new HashMap<>();
                             user.put("Name",naam);
                             user.put("Email",email);

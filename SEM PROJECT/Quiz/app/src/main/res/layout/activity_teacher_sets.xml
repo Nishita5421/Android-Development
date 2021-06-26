@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#333E50"
-    tools:context=".CourseJoined">
+    tools:context=".QuizRecycler">
 
     <ImageView
         android:id="@+id/back"
         android:layout_width="45dp"
         android:layout_height="51dp"
         android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="335dp"
+        android:layout_marginRight="335dp"
         android:layout_marginBottom="719dp"
-        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,37 +24,32 @@
         app:srcCompat="@drawable/back" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="250dp"
-        android:layout_height="78dp"
+        android:id="@+id/CourseTitle"
+        android:layout_width="370dp"
+        android:layout_height="83dp"
         android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
         android:fontFamily="sans-serif-condensed"
-        android:letterSpacing="0"
-        android:text="@string/courses"
+        android:gravity="center"
         android:textColor="#E9DFD3"
-        android:textSize="45sp"
+        android:textSize="58sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.769"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.193" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
+        android:id="@+id/listview"
 
-        android:id="@+id/recyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:paddingBottom="100dp"
+        android:layout_width="395dp"
+        android:layout_height="527dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
     <Button
         android:id="@+id/fab"
         android:layout_width="58dp"
@@ -69,5 +65,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="186dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="56dp"
+        android:text="Long Press to delete the set"
+        android:textColor="#EA8A5A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        tools:layout_editor_absoluteY="54dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

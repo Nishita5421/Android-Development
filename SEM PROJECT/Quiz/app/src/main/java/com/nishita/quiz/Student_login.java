@@ -79,11 +79,8 @@ public class Student_login extends AppCompatActivity {
 
 
         ImageView back=findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Student_login.this, page2_choose.class);
-            }
+        back.setOnClickListener(v -> {
+            startActivity(new Intent(Student_login.this, page2_choose.class));
         });
 
 

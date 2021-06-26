@@ -1,6 +1,7 @@
 package com.nishita.quiz;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,28 +17,44 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Main2Activity extends AppCompatActivity {
-    public Button play,exit,delete;
+    public Button play,exit,delete,view;
     private FirebaseAuth mAuth;
     private String st;
+    private FirebaseFirestore firestore;
 
     private GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        view=findViewById(R.id.view_course);
         ImageView back = (ImageView)findViewById(R.id.back);
         back.bringToFront();
+        firestore=FirebaseFirestore.getInstance();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Main2Activity.this, student_register.class));
             }
         });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this, CourseJoined.class));
+            }
+        });
+
     }
+
 
     public void join_course (View view){
 
@@ -68,6 +85,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 st = EnterCourseCode.getText().toString();
+
                 Intent i = new Intent(Main2Activity.this, CourseJoined.class);
                 i.putExtra("Value",st);
                 alertDialog.cancel();

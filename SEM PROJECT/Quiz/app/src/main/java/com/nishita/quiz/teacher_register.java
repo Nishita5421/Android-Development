@@ -44,71 +44,64 @@ public class teacher_register extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_register);
 
         mAuth = FirebaseAuth.getInstance();
-        reg=findViewById(R.id.editText6);
-        name=findViewById(R.id.editText5);
-        emailId = findViewById(R.id.editText3);
-        password = findViewById(R.id.editText4);
-        button = findViewById(R.id.button1);
+        reg=findViewById(R.id.user);
+        name=findViewById(R.id.name);
+        emailId = findViewById(R.id.email);
+        password = findViewById(R.id.pass);
+
         fstore= FirebaseFirestore.getInstance();
-        grp=findViewById(R.id.grp);
-        selectedId=grp.getCheckedRadioButtonId();
-        radio=findViewById(selectedId);
+      Button button=findViewById(R.id.register);
+
         ImageView back=findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(teacher_register.this, page2_choose.class);
-            }
+        back.setOnClickListener(v -> {
+            startActivity(new Intent(teacher_register.this, page2_choose.class));
         });
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final   String email = emailId.getText().toString();
-                final String pass = password.getText().toString();
-                final String naam= name.getText().toString();
-                final String num= reg.getText().toString();
-                if (email.isEmpty()) {
-                    emailId.setError("Please enter email Id");
-                    emailId.requestFocus();
-                } else if (pass.isEmpty()) {
-                    password.setError("Please enter Password");
-                    password.requestFocus();
-                } else if (email.isEmpty() && pass.isEmpty()) {
-                    Toast.makeText(teacher_register.this, "Fields are empty", Toast.LENGTH_SHORT);
-                } else if (!(email.isEmpty() && pass.isEmpty())){mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(teacher_register.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful())
-                        {Toast.makeText(teacher_register.this,"SignUp Unsuccessful,Please try again",Toast.LENGTH_SHORT);
-                        }
-                        else {
-
-                            userID=mAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference=fstore.collection("students").document(userID);
-                            Map<String,Object> user=new HashMap<>();
-                            user.put("Name",naam);
-                            user.put("Email",email);
-                            user.put("Mob No.",num);
-                            user.put("Type",radio.getText());
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("TAG","onsuccess: user file is created for"+userID);
-                                }
-                            });
-                            startActivity(new Intent(teacher_register.this, Main2Activity.class));
-
-                        }
+        button.setOnClickListener(v -> {
+            final String email = emailId.getText().toString();
+            final String pass = password.getText().toString();
+            final String naam= name.getText().toString();
+            final String num= reg.getText().toString();
+            if (email.isEmpty()) {
+                emailId.setError("Please enter email Id");
+                emailId.requestFocus();
+            } else if (pass.isEmpty()) {
+                password.setError("Please enter Password");
+                password.requestFocus();
+            } else if (email.isEmpty() && pass.isEmpty()) {
+                Toast.makeText(teacher_register.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+            } else if (!(email.isEmpty() && pass.isEmpty())){mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(teacher_register.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(!task.isSuccessful())
+                    {Toast.makeText(teacher_register.this,"SignUp Unsuccessful,Please try again",Toast.LENGTH_SHORT).show();
                     }
-                });
-                }
-                else {Toast.makeText(teacher_register.this,"Error Occured!",Toast.LENGTH_SHORT).show();
+                    else {
 
+                        userID=mAuth.getCurrentUser().getUid();
+                        DocumentReference documentReference=fstore.collection("teachers").document(email);
+                        Map<String,Object> user=new HashMap<>();
+                        user.put("Name",naam);
+                        user.put("Email",email);
+                        user.put("Mob No.",num);
 
+                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("TAG","onsuccess: user file is created for"+userID);
+                            }
+                        });
+                        startActivity(new Intent(teacher_register.this, teacher_login.class));
+
+                    }
                 }
+            });
+            }
+            else {Toast.makeText(teacher_register.this,"Error Occured!",Toast.LENGTH_SHORT).show();
 
 
             }
+
+
         });
 
     }

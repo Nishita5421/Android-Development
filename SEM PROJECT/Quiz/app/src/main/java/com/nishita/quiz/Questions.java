@@ -90,7 +90,7 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
     private void getQuestionlist()
     {
         list=new ArrayList<>();
-        firestorer.collection("Quiz")
+        firestorer.collection("Sample")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {

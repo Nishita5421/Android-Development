@@ -30,7 +30,7 @@ public class teacher_login extends AppCompatActivity {
 
         final EditText emailId=findViewById(R.id.username);
         final EditText password=findViewById(R.id.password);
-        Button btnsigup=findViewById(R.id.button);
+        //Button btnsigup=findViewById(R.id.button);
         mAuth = FirebaseAuth.getInstance();
         ImageView back=findViewById(R.id.back);
         Button loginButton=findViewById(R.id.login);
@@ -53,45 +53,39 @@ public class teacher_login extends AppCompatActivity {
             }
         };
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(teacher_login.this, page2_choose.class);
-            }
+        back.setOnClickListener(v -> {
+            startActivity(new Intent(teacher_login.this, page2_choose.class));
         });
-        btnsigup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email=emailId.getText().toString();
-                String pass=password.getText().toString();
-                if(email.isEmpty())
-                {emailId.setError("Please enter email Id");
-                    emailId.requestFocus();
-                }
-                else if(pass.isEmpty())
-                {password.setError("Please enter Password");
-                    password.requestFocus();
-                }
-                else if(email.isEmpty() && pass.isEmpty())
-                {Toast.makeText(teacher_login.this,"Fields are empty",Toast.LENGTH_SHORT).show();
-                }
-                else if(!(email.isEmpty() && pass.isEmpty()))
-                {
-                    mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(teacher_login.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful())
-                            {Toast.makeText(teacher_login.this, "Login Error, Please Login here", Toast.LENGTH_SHORT).show();}
-                            else{
-                                Intent intr=new Intent(teacher_login.this,Main2Activity.class);
-                                startActivity(intr);
-                            }
-                        }
-                    });
-                }
-                else {Toast.makeText(teacher_login.this,"Error Occured!",Toast.LENGTH_SHORT).show();}
-
+        loginButton.setOnClickListener(v -> {
+            String email=emailId.getText().toString();
+            String pass=password.getText().toString();
+            if(email.isEmpty())
+            {emailId.setError("Please enter email Id");
+                emailId.requestFocus();
             }
+            else if(pass.isEmpty())
+            {password.setError("Please enter Password");
+                password.requestFocus();
+            }
+            else if(email.isEmpty() && pass.isEmpty())
+            {Toast.makeText(teacher_login.this,"Fields are empty",Toast.LENGTH_SHORT).show();
+            }
+            else if(!(email.isEmpty() && pass.isEmpty()))
+            {
+                mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(teacher_login.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(!task.isSuccessful())
+                        {Toast.makeText(teacher_login.this, "Login Error, Please Login here", Toast.LENGTH_SHORT).show();}
+                        else{
+                            Intent intr=new Intent(teacher_login.this,CreateClass.class);
+                            startActivity(intr);
+                        }
+                    }
+                });
+            }
+            else {Toast.makeText(teacher_login.this,"Error Occured!",Toast.LENGTH_SHORT).show();}
+
         });
 
 
